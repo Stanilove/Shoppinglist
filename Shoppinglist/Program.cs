@@ -128,5 +128,27 @@ namespace Shoppinglist
 
 
         }
+        
+        private static void showDatePurchase(ShoppingList MainList)
+        {
+
+            DateTime day;
+
+            Console.WriteLine("Enter day in format dd MM yyyy");
+
+            while (!DateTime.TryParseExact(Console.ReadLine(), "dd MM yyyy", new CultureInfo("ru-Ru"), DateTimeStyles.None, out day))
+                Console.WriteLine("Something went wrong. Try to input one more time");
+
+
+            Console.WriteLine();
+            List<string> return_list = MainList.PurchasesRange(day, day);
+
+            if (return_list.Count() == 0)
+                Console.WriteLine("Not found any notes in this period of time\n");
+            else
+                return_list.ForEach(x => Console.WriteLine(x));
+
+
+        }
     }
 }
