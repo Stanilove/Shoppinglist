@@ -150,5 +150,30 @@ namespace Shoppinglist
 
 
         }
+        
+        private static void totalPurchase(ShoppingList MainList)
+        {
+            DateTime start;
+            DateTime end;
+
+            Console.WriteLine("Enter Start of Time period in format dd MM yyyy");
+
+            while (!DateTime.TryParseExact(Console.ReadLine(), "dd MM yyyy", new CultureInfo("ru-Ru"), DateTimeStyles.None, out start))
+                Console.WriteLine("Something went wrong. Try to input one more time");
+
+
+            Console.WriteLine("Enter End of Time period in format dd MM yyyy");
+
+            while (!DateTime.TryParseExact(Console.ReadLine(), "dd MM yyyy", new CultureInfo("ru-Ru"), DateTimeStyles.None, out end))
+                Console.WriteLine("Something went wrong. Try to input one more time");
+
+
+            Console.WriteLine();
+            double total = MainList.spentinRange(start, end);
+
+            Console.WriteLine("Spent total: " + total.ToString() + "\n");
+
+
+        }
     }
 }
