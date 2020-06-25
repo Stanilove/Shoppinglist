@@ -51,6 +51,16 @@ namespace Shoppinglist
 
             return notes;
         }
+        
+        public double spentinRange(DateTime start, DateTime end)
+        {
+            double total = 0;
+
+            foreach (ShoppingNote x in PurchaseList)
+                if (x.dateofpurchase <= end && x.dateofpurchase >= start)
+                    total += x.spentamount;
+            return total;
+        }
 
 
     }
