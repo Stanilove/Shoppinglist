@@ -23,7 +23,9 @@ namespace Shoppinglist
                     "1. Add new purchase\n" +
                     "2. Remove previous purchase\n" +
                     "3. Show purchases in period of time\n" +
-                    "4. Exit from this program\n");
+                    "4. Show all purchases in one day\n" +
+                    "5. Show total cost of purchases in period of time\n" +
+                    "6. Exit from this program\n");
                 Console.Write(">> ");
                 switch (Console.ReadLine())
                 {
@@ -37,7 +39,14 @@ namespace Shoppinglist
                         showPurchase(MainList);
                         break;
                     case "4":
+                        showDatePurchase(MainList);
+                        break;
+                    case "5":
+                        totalPurchase(MainList);
+                        break;
+                    case "6":
                         return;
+                        
                 }
             }
 
